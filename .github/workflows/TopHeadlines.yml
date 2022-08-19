@@ -1,4 +1,4 @@
-name: TopHealines
+name: TopHeadlines
 
 on:
   push:
@@ -16,5 +16,5 @@ jobs:
     - name: Select Xcode
       run: sudo xcode-select -switch /Applications/Xcode_13.2.app
     - name: Build and Test
-      run: xcodebuild test -project TopHealines.xcodeproj -scheme "TopHealines" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 13,OS=15.2" ONLY_ACTIVE_ARCH=YES SWIFT_TREAT_WARNINGS_AS_ERRORS=YES
+      run: xcodebuild test -project TopHeadlines.xcodeproj -scheme "TopHeadlines" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 13,OS=15.2" ONLY_ACTIVE_ARCH=YES SWIFT_TREAT_WARNINGS_AS_ERRORS=YES
 
