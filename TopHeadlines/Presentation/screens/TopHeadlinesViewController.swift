@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TopHeadlinesViewController.swift
 //  TopHeadlines
 //
 //  Created by waheedCodes on 19/08/2022.
@@ -7,13 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TopHeadlinesViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .cyan
     }
-
-
 }
-
