@@ -1,8 +1,8 @@
-# TopHeadlines
-
 [![IDE](https://img.shields.io/badge/Xcode-13.2.1-blue.svg)](https://developer.apple.com/xcode/)
 [![Platform](https://img.shields.io/badge/iOS-15.2-green.svg)](https://developer.apple.com/ios/)
 [![Build Status](https://github.com/wptechprodigy/TopHeadlines/actions/workflows/TopHeadlines.yml/badge.svg)](https://github.com/wptechprodigy/TopHeadlines/actions/workflows/CryptoList.yml)
+
+# TopHeadlines 
 
 ## An iOS app that displays news top headlines with ability to read the entire news.
 
