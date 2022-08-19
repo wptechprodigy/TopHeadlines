@@ -6,15 +6,30 @@
 //
 
 import XCTest
+@testable import TopHeadlines
 
 class TopHeadlinesViewControllerTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func test_canInit() throws {
+        _ = try makeSUT()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func test_viewDidLoad_setsTitle() throws {
+        let sut = try makeSUT()
+
+        sut.loadViewIfNeeded()
+
+        XCTAssertEqual(sut.title, "Top Headlines")
     }
 
+    // MARK: - Helpers
+
+    func makeSUT() throws -> TopHeadlinesViewController {
+        let bundle = Bundle(for: TopHeadlinesViewController.self)
+        let sb = UIStoryboard(name: "Main", bundle: bundle)
+
+        let initialVC = sb.instantiateInitialViewController()
+        let sut = try XCTUnwrap(initialVC as? TopHeadlinesViewController)
+        return sut
+    }
 }
