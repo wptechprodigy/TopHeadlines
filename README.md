@@ -7,7 +7,7 @@
 
 ### Story: User request to see the list of top headlines and when the user clicks on an headline, it shows the full news article in a `Webview`
 
-#### Narative
+### Narrative
 
 ```
 As an online user
