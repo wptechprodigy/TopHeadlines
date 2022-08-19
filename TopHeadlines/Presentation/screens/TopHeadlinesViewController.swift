@@ -11,6 +11,6 @@ class TopHeadlinesViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .cyan
+        self.title = "Top Headlines"
     }
 }
