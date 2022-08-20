@@ -31,10 +31,10 @@ class TopHeadlineItemTests: XCTestCase {
     }
 
     func test_init_shouldSetImageURL() {
-        let testImageURL = "https://a-test-url.com"
+        let testImageURL = URL(string: "https://a-test-url.com")!
         
         let item = TopHeadlineItem.fixture(imageURL: testImageURL)
 
-        XCTAssertEqual(item.imageURL, "https://a-test-url.com", "initializer should set the item image url")
+        XCTAssertEqual(item.imageURL, testImageURL, "initializer should set the item image url")
     }
 }
