@@ -10,8 +10,13 @@
 extension TopHeadlineItem {
     static func fixture(
         title: String = "a title",
-        author: String = "an author"
+        author: String = "an author",
+        imageURL: String = "https://a-url.com"
     ) -> TopHeadlineItem {
-        TopHeadlineItem(title: title, author: author)
+        
+        TopHeadlineItem(
+            title: title,
+            author: author,
+            imageURL: imageURL)
     }
 }

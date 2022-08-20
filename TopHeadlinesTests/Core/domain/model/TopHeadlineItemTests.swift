@@ -11,30 +11,30 @@ import XCTest
 class TopHeadlineItemTests: XCTestCase {
 
     func test_canInit() {
-        let title = "a title"
-        let anAuthor = "an author"
-        _ = TopHeadlineItem(title: title, author: anAuthor)
+        _ = TopHeadlineItem.fixture()
     }
 
     func test_init_shouldSetTitle() {
-        let title = "a title"
-        let anAuthor = "an author"
-        let item = TopHeadlineItem(title: title, author: anAuthor)
+        let testTitle = "Test title"
 
-        XCTAssertEqual(item.title, "a title", "initializer should set the item title")
+        let item = TopHeadlineItem.fixture(title: testTitle)
+
+        XCTAssertEqual(item.title, "Test title", "initializer should set the item title")
     }
 
-    func test_init_shouldSetTitleAndAuthor() {
-        let title = "a title"
-        let anAuthor = "an author"
-        let item = TopHeadlineItem(title: title, author: anAuthor)
+    func test_init_shouldSetAuthor() {
+        let testAuthor = "Test author"
 
-        XCTAssertEqual(item.author, "an author", "initializer should set the item author")
+        let item = TopHeadlineItem.fixture(author: testAuthor)
+
+        XCTAssertEqual(item.author, "Test author", "initializer should set the item author")
     }
 
-    // MARK: - Helpers
+    func test_init_shouldSetImageURL() {
+        let testImageURL = "https://a-test-url.com"
+        
+        let item = TopHeadlineItem.fixture(imageURL: testImageURL)
 
-//    private func makeTopHeadlineItem() -> TopHealineItem {
-//
-//    }
+        XCTAssertEqual(item.imageURL, "https://a-test-url.com", "initializer should set the item image url")
+    }
 }
