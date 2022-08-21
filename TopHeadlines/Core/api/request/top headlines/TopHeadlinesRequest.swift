@@ -7,16 +7,21 @@
 
 import Foundation
 
-struct TopHeadlinesRequest: RequestProtocol {
+enum TopHeadlinesRequest: RequestProtocol {
+    case getHeadlines(forCountry: String)
+
     var path: String {
         return "/v2/top-headlines"
     }
 
     var urlParams: [String : String?] {
-        return [
-            "country": "us",
-            "apiKey": APIConstants.apiKey
-        ]
+        switch self {
+            case .getHeadlines(let country):
+                return [
+                    "country": country,
+                    "apiKey": APIConstants.apiKey
+                ]
+        }
     }
 
     var requestType: RequestType {
