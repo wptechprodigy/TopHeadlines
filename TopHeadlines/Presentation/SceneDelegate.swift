@@ -29,10 +29,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 
+    private lazy var viewModel = TopHeadlinesViewModel()
+
     private func makeTopHeadlinesViewController() -> TopHeadlinesViewController {
         let bundle = Bundle(for: TopHeadlinesViewController.self)
         let storyboard = UIStoryboard(name: "Main", bundle: bundle)
         let viewController = storyboard.instantiateInitialViewController() as! TopHeadlinesViewController
+        viewController.viewModel = viewModel
         return viewController
     }
 }
