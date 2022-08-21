@@ -12,7 +12,7 @@ struct TopHeadlinesResponse: Decodable {
 }
 
 struct ArticleItem: Decodable {
-    let author: String
     let title: String
-    let urlToImage: URL
+    let author: String?
+    let urlToImage: URL?
 }
