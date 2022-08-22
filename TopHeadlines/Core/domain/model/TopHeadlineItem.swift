@@ -12,7 +12,7 @@ class TopHeadlineItem {
     var author: String?
     let imageURL: URL?
 
-    init(title: String, author: String?, imageURL: URL?) {
+    init(title: String, author: String? = nil, imageURL: URL? = nil) {
         self.title = title
         self.author = author
         self.imageURL = imageURL

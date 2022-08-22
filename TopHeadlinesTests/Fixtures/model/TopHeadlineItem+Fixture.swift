@@ -11,8 +11,8 @@ import Foundation
 extension TopHeadlineItem {
     static func fixture(
         title: String = "a title",
-        author: String = "an author",
-        imageURL: URL = URL(string: "https://a-url.com")!
+        author: String? = "an author",
+        imageURL: URL? = URL(string: "https://a-url.com")!
     ) -> TopHeadlineItem {
         
         TopHeadlineItem(
