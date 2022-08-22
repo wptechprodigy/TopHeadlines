@@ -29,13 +29,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 
-    private lazy var viewModel = TopHeadlinesViewModel()
+    private lazy var requestManager = RequestManager()
+    private let country = "us"
+    private let bundleName = "Main"
+    private lazy var viewModel = TopHeadlinesViewModel(requestManager: requestManager,
+                                                       country: country)
 
     private func makeTopHeadlinesViewController() -> TopHeadlinesViewController {
         let bundle = Bundle(for: TopHeadlinesViewController.self)
-        let storyboard = UIStoryboard(name: "Main", bundle: bundle)
+        let storyboard = UIStoryboard(name: self.bundleName, bundle: bundle)
         let viewController = storyboard.instantiateInitialViewController() as! TopHeadlinesViewController
         viewController.viewModel = viewModel
+        viewController.select = { [self] headlineURLString in
+            let vc = self.makeHeadlineDetailsViewController(headlineURLString: headlineURLString)
+            navigationController.show(vc, sender: nil)
+        }
+        return viewController
+    }
+
+    private func makeHeadlineDetailsViewController(headlineURLString: String) -> HeadlineDetailsViewController {
+        let bundle = Bundle(for: HeadlineDetailsViewController.self)
+        let storyboard = UIStoryboard(name: self.bundleName, bundle: bundle)
+        let viewController = storyboard.instantiateViewController(
+            identifier: HeadlineDetailsViewController.reuseIdentifier
+        ) { coder -> HeadlineDetailsViewController? in
+            HeadlineDetailsViewController(coder: coder, urlString: headlineURLString)
+        }
+
         return viewController
     }
 }

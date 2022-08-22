@@ -14,8 +14,8 @@ class TopHeadlinesViewModel {
     private let country: String
 
     init(
-        requestManager: RequestManagerProtocol = RequestManager(),
-        country: String = "us"
+        requestManager: RequestManagerProtocol,
+        country: String
     ) {
         self.requestManager = requestManager
         self.country = country
@@ -42,5 +42,9 @@ class TopHeadlinesViewModel {
 
     func cellForRowAt(indexPath: IndexPath) -> TopHeadlineItem {
         topHeadlines[indexPath.row]
+    }
+
+    func getHeadlineURL(at indexPath: IndexPath) -> String {
+        return "https://www.google.com"
     }
 }
