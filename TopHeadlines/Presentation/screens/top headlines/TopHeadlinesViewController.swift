@@ -10,6 +10,7 @@ import UIKit
 class TopHeadlinesViewController: UITableViewController {
 
     var viewModel: TopHeadlinesViewModel?
+    var select: (String) -> Void = { _ in }
 
     // MARK: - Lifecyle
 
@@ -39,5 +40,12 @@ class TopHeadlinesViewController: UITableViewController {
         }
         
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let viewModel = viewModel {
+            self.select(viewModel.getHeadlineURL(at: indexPath))
+        }
     }
 }
