@@ -35,10 +35,19 @@ I want to be able to see the last viewed top headlines
 
 #### Requirements:
 
-- [X] Display a list of top headlines
-- [X] Each list should display the headline title, author and with a background of headline image
+- [ ] Display a list of top headlines
+- [ ] Each list should display the headline title, author and with a background of headline image
+- [ ] Persist most recently loaded top headlines list for the user incase user loses connectivity
+- [ ] Display the persisted list when there's no connectivity
 
 #### Solution:
 
+- [X] Displays a list of top headlines
+- [X] Each list displays the headline title, author and with a background of headline image
+- [X] When an headline is tapped, shows headline details in a `WebView`
+
 <img src="https://user-images.githubusercontent.com/22558674/185888554-671111e2-8cc4-4d6f-bda5-bfa029944824.png" width="350"> <img src="https://user-images.githubusercontent.com/22558674/185888834-d5dc3d80-4085-43da-ab11-be03d36721b5.png" width="350">
 
+- [X] Handles when headline has no thumbnail image
+
+<img src="https://user-images.githubusercontent.com/22558674/185902310-3d013db0-1ad2-4b08-bcc2-c0c414a1ce6e.png" width="350">
