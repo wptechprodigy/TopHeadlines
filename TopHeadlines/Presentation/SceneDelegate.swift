@@ -40,20 +40,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: self.bundleName, bundle: bundle)
         let viewController = storyboard.instantiateInitialViewController() as! TopHeadlinesViewController
         viewController.viewModel = viewModel
-        viewController.select = { [self] headlineURLString in
-            let vc = self.makeHeadlineDetailsViewController(headlineURLString: headlineURLString)
+        viewController.select = { [self] headlineURL in
+            let vc = self.makeHeadlineDetailsViewController(headlineURL: headlineURL)
             navigationController.show(vc, sender: nil)
         }
         return viewController
     }
 
-    private func makeHeadlineDetailsViewController(headlineURLString: String) -> HeadlineDetailsViewController {
+    private func makeHeadlineDetailsViewController(headlineURL: URL) -> HeadlineDetailsViewController {
         let bundle = Bundle(for: HeadlineDetailsViewController.self)
         let storyboard = UIStoryboard(name: self.bundleName, bundle: bundle)
         let viewController = storyboard.instantiateViewController(
             identifier: HeadlineDetailsViewController.reuseIdentifier
         ) { coder -> HeadlineDetailsViewController? in
-            HeadlineDetailsViewController(coder: coder, urlString: headlineURLString)
+            HeadlineDetailsViewController(coder: coder, url: headlineURL)
         }
 
         return viewController

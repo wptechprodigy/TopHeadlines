@@ -14,5 +14,6 @@ struct TopHeadlinesResponse: Decodable {
 struct ArticleItem: Decodable {
     let title: String
     let author: String?
+    let url: URL
     let urlToImage: URL?
 }

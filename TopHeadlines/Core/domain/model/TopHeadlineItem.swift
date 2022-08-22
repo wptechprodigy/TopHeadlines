@@ -9,12 +9,14 @@ import Foundation
 
 class TopHeadlineItem {
     let title: String
-    var author: String?
+    let author: String?
+    let url: URL
     let imageURL: URL?
 
-    init(title: String, author: String? = nil, imageURL: URL? = nil) {
+    init(title: String, author: String? = nil, url: URL, imageURL: URL? = nil) {
         self.title = title
         self.author = author
+        self.url = url
         self.imageURL = imageURL
     }
 }
@@ -24,6 +26,7 @@ extension TopHeadlineItem {
         self.init(
             title: topHeadlinesResult.title,
             author: topHeadlinesResult.author,
+            url: topHeadlinesResult.url,
             imageURL: topHeadlinesResult.urlToImage)
     }
 }

@@ -39,4 +39,3 @@ I want to be able to see the last viewed top headlines
 - [X] Each list should display the headline title, author and with a background of headline image
 
 #### Solution:
- 
