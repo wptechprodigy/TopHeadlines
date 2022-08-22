@@ -17,8 +17,13 @@ class TopHeadlinesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Top Headlines"
-        loadTopHeadlines()
         refreshIfNeeded()
+        loadTopHeadlines()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.loadTopHeadlines()
     }
 
     // MARK: - Load top headlines

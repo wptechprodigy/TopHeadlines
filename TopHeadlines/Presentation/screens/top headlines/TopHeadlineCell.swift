@@ -11,6 +11,7 @@ import Kingfisher
 class TopHeadlineCell: UITableViewCell {
 
     private let radius: CGFloat = 8
+    private lazy var placeholderImage = UIImage(named: "noHeadlineThumbnail")
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
@@ -76,10 +77,10 @@ class TopHeadlineCell: UITableViewCell {
             self.backdropImageView
                 .kf.setImage(
                     with: imageURL,
-                    placeholder: nil,
+                    placeholder: placeholderImage,
                     options: options)
         } else {
-            self.backdropImageView.image = UIImage()
+            self.backdropImageView.image = placeholderImage
         }
     }
 }

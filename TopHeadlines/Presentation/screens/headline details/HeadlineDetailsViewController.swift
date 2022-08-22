@@ -27,6 +27,7 @@ class HeadlineDetailsViewController: UIViewController, WKUIDelegate {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
+        webView.allowsBackForwardNavigationGestures = true
         view = webView
     }
 
