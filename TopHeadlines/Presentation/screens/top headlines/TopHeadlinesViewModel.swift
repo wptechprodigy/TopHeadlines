@@ -12,6 +12,7 @@ class TopHeadlinesViewModel {
     private var topHeadlines: [TopHeadlineItem] = []
     private let requestManager: RequestManagerProtocol
     private let country: String
+    var onTopHeadlinesLoading: (Bool) -> Void = { _ in }
 
     init(
         requestManager: RequestManagerProtocol,
@@ -23,6 +24,7 @@ class TopHeadlinesViewModel {
 
     func loadTopHeadlines() async {
         do {
+            self.onTopHeadlinesLoading(true)
             let response: TopHeadlinesResponse = try await requestManager
                 .perform(
                     TopHeadlinesRequest
@@ -30,6 +32,7 @@ class TopHeadlinesViewModel {
                             forCountry: country))
 
             self.topHeadlines = response.articles.map(TopHeadlineItem.init)
+            self.onTopHeadlinesLoading(false)
         } catch {
             print(error)
         }

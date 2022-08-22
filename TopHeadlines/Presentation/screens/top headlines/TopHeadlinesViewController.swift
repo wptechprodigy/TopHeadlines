@@ -18,8 +18,11 @@ class TopHeadlinesViewController: UITableViewController {
         super.viewDidLoad()
         self.title = "Top Headlines"
         loadTopHeadlines()
+        refreshIfNeeded()
     }
 
+    // MARK: - Load top headlines
+    
     private func loadTopHeadlines()  {
         if let viewModel = viewModel {
             Task {
@@ -28,6 +31,38 @@ class TopHeadlinesViewController: UITableViewController {
             }
         }
     }
+
+    // MARK: - Refresh
+
+    private func refreshIfNeeded() {
+        self.handleRefresh()
+
+        viewModel?.onTopHeadlinesLoading = { isLoading in
+            DispatchQueue.main.async {
+                switch isLoading {
+                    case true:
+                        self.refreshControl?.beginRefreshing()
+                    case false:
+                        self.refreshControl?.endRefreshing()
+                }
+            }
+        }
+    }
+
+    private func handleRefresh() {
+        refreshControl = UIRefreshControl()
+        refreshControl?
+            .addTarget(
+                self,
+                action: #selector(self.refresh),
+                for: .valueChanged)
+    }
+
+    @objc private func refresh(_ sender: UIRefreshControl) {
+        self.loadTopHeadlines()
+    }
+
+    // MARK: - Data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.numberOfRowsIn(section: section) ?? 0
@@ -41,6 +76,8 @@ class TopHeadlinesViewController: UITableViewController {
         
         return cell
     }
+
+    // MARK: - Delegate
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
