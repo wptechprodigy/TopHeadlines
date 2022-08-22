@@ -12,10 +12,10 @@ class HeadlineDetailsViewController: UIViewController, WKUIDelegate {
 
     var webView: WKWebView!
 
-    private let urlString: String
+    private let url: URL
 
-    init?(coder: NSCoder, urlString: String) {
-        self.urlString = urlString
+    init?(coder: NSCoder, url: URL) {
+        self.url = url
         super.init(coder: coder)
     }
 
@@ -36,8 +36,7 @@ class HeadlineDetailsViewController: UIViewController, WKUIDelegate {
     }
 
     private func loadHeadlineDetails() {
-        let headlineURL = URL(string: urlString)
-        let request = URLRequest(url: headlineURL!)
+        let request = URLRequest(url: url)
         webView.load(request)
     }
 }

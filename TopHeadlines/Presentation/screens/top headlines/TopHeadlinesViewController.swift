@@ -10,7 +10,7 @@ import UIKit
 class TopHeadlinesViewController: UITableViewController {
 
     var viewModel: TopHeadlinesViewModel?
-    var select: (String) -> Void = { _ in }
+    var select: (URL) -> Void = { _ in }
 
     // MARK: - Lifecyle
 

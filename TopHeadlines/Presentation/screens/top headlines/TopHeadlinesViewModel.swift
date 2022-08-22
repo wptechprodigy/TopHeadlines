@@ -47,7 +47,7 @@ class TopHeadlinesViewModel {
         topHeadlines[indexPath.row]
     }
 
-    func getHeadlineURL(at indexPath: IndexPath) -> String {
-        return "https://www.google.com"
+    func getHeadlineURL(at indexPath: IndexPath) -> URL {
+        return topHeadlines[indexPath.row].url
     }
 }
