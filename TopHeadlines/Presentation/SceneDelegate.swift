@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -29,11 +30,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 
-    private lazy var requestManager = RequestManager()
+    // MARK: - Manage dependencies
+
+    private lazy var dataParser = DataParser()
+    private lazy var uniqueKey = "com.waheedcodes.TopHeadlines.UserDefaultStorage.MostRecentHeadlines"
+    private lazy var userDefaultStorage = UserDefaultStorageManager(key: self.uniqueKey)
+    private lazy var apiManager = APIManager(storage: self.userDefaultStorage)
+    private lazy var requestManager = RequestManager(apiManager: self.apiManager, parser: self.dataParser)
     private let country = "us"
     private let bundleName = "Main"
-    private lazy var viewModel = TopHeadlinesViewModel(requestManager: requestManager,
-                                                       country: country)
+    private lazy var viewModel = TopHeadlinesViewModel(requestManager: self.requestManager,
+                                                       country: self.country,
+                                                       dataStore: self.userDefaultStorage)
+
+    // MARK: - Flow composition
 
     private func makeTopHeadlinesViewController() -> TopHeadlinesViewController {
         let bundle = Bundle(for: TopHeadlinesViewController.self)

@@ -8,18 +8,21 @@
 import Foundation
 
 protocol APIManagerProtocol {
-    func perfom(_ request: RequestProtocol) async throws -> Data
+    func perform(_ request: RequestProtocol) async throws -> Data
 }
 
 class APIManager: APIManagerProtocol {
 
     private let urlSession: URLSession
+    private let storage: DataStorageProtocol
 
-    init(urlSession: URLSession = .shared) {
+    init(urlSession: URLSession = .shared,
+         storage: DataStorageProtocol) {
         self.urlSession = urlSession
+        self.storage = storage
     }
 
-    func perfom(_ request: RequestProtocol) async throws -> Data {
+    func perform(_ request: RequestProtocol) async throws -> Data {
         let (data, response) = try await urlSession.data(for: request.createURLRequest())
 
         guard
@@ -28,6 +31,7 @@ class APIManager: APIManagerProtocol {
             throw NetworkError.invalidServerResponse
         }
 
+        storage.save(data)
         return data
     }
 }

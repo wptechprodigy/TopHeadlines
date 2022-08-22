@@ -11,25 +11,39 @@ class TopHeadlinesViewModel {
 
     private var topHeadlines: [TopHeadlineItem] = []
     private let requestManager: RequestManagerProtocol
+    private let dataStore: DataStorageProtocol
     private let country: String
+
     var onTopHeadlinesLoading: (Bool) -> Void = { _ in }
 
     init(
         requestManager: RequestManagerProtocol,
-        country: String
+        country: String,
+        dataStore: DataStorageProtocol
     ) {
         self.requestManager = requestManager
         self.country = country
+        self.dataStore = dataStore
     }
 
-    func loadTopHeadlines() async {
+    func loadTopHeadlines(_ isAvailableConnection: Bool) async {
         do {
             self.onTopHeadlinesLoading(true)
-            let response: TopHeadlinesResponse = try await requestManager
-                .perform(
-                    TopHeadlinesRequest
-                        .getHeadlines(
-                            forCountry: country))
+
+            var response: TopHeadlinesResponse
+
+            switch isAvailableConnection {
+                case true:
+                    response = try await requestManager
+                        .perform(
+                            TopHeadlinesRequest
+                                .getHeadlines(
+                                    forCountry: country))
+                    
+                case false:
+                    
+                    response = try await dataStore.retrieve()
+            }
 
             self.topHeadlines = response.articles.map(TopHeadlineItem.init)
             self.onTopHeadlinesLoading(false)

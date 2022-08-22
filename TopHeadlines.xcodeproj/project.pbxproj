@@ -34,6 +34,9 @@
 		04C1FE6628B177930073ABF8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 04C1FE6528B177930073ABF8 /* Kingfisher */; };
 		04C1FE6B28B225640073ABF8 /* HeadlineDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1FE6A28B225640073ABF8 /* HeadlineDetailsViewController.swift */; };
 		04C1FE6D28B234C50073ABF8 /* UIViewController+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1FE6C28B234C50073ABF8 /* UIViewController+ReuseIdentifier.swift */; };
+		04C1FE9028B39BFC0073ABF8 /* DataStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1FE8F28B39BFC0073ABF8 /* DataStorageProtocol.swift */; };
+		04C1FE9328B39E1A0073ABF8 /* UserDefaultStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1FE9228B39E1A0073ABF8 /* UserDefaultStorageManager.swift */; };
+		04C1FE9828B3EA3A0073ABF8 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1FE9728B3EA3A0073ABF8 /* NetworkMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,9 @@
 		04C1FE6228B16E2C0073ABF8 /* TopHeadlineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeadlineCell.swift; sourceTree = "<group>"; };
 		04C1FE6A28B225640073ABF8 /* HeadlineDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineDetailsViewController.swift; sourceTree = "<group>"; };
 		04C1FE6C28B234C50073ABF8 /* UIViewController+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ReuseIdentifier.swift"; sourceTree = "<group>"; };
+		04C1FE8F28B39BFC0073ABF8 /* DataStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorageProtocol.swift; sourceTree = "<group>"; };
+		04C1FE9228B39E1A0073ABF8 /* UserDefaultStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultStorageManager.swift; sourceTree = "<group>"; };
+		04C1FE9728B3EA3A0073ABF8 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,7 @@
 		04C1FE0B28AFDDCF0073ABF8 /* TopHeadlines */ = {
 			isa = PBXGroup;
 			children = (
+				04C1FE8E28B39B640073ABF8 /* Data Storage */,
 				04C1FE3028AFE93B0073ABF8 /* Core */,
 				04C1FE2D28AFE8E50073ABF8 /* Presentation */,
 				04C1FE1A28AFDDD00073ABF8 /* Info.plist */,
@@ -266,6 +273,7 @@
 				04C1FE4D28B1057F0073ABF8 /* NetworkError.swift */,
 				04C1FE4428B102760073ABF8 /* APIManager.swift */,
 				04C1FE5228B10D600073ABF8 /* RequestManager.swift */,
+				04C1FE9728B3EA3A0073ABF8 /* NetworkMonitor.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -346,6 +354,23 @@
 				04C1FE6A28B225640073ABF8 /* HeadlineDetailsViewController.swift */,
 			);
 			path = "headline details";
+			sourceTree = "<group>";
+		};
+		04C1FE8E28B39B640073ABF8 /* Data Storage */ = {
+			isa = PBXGroup;
+			children = (
+				04C1FE9128B39DA50073ABF8 /* userDefaults */,
+				04C1FE8F28B39BFC0073ABF8 /* DataStorageProtocol.swift */,
+			);
+			path = "Data Storage";
+			sourceTree = "<group>";
+		};
+		04C1FE9128B39DA50073ABF8 /* userDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				04C1FE9228B39E1A0073ABF8 /* UserDefaultStorageManager.swift */,
+			);
+			path = userDefaults;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,13 +480,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C1FE9328B39E1A0073ABF8 /* UserDefaultStorageManager.swift in Sources */,
 				04C1FE6D28B234C50073ABF8 /* UIViewController+ReuseIdentifier.swift in Sources */,
 				04C1FE4528B102770073ABF8 /* APIManager.swift in Sources */,
 				04C1FE6128B16D5D0073ABF8 /* ReusableView.swift in Sources */,
 				04C1FE3528B0D26D0073ABF8 /* TopHeadlineItem.swift in Sources */,
 				04C1FE6B28B225640073ABF8 /* HeadlineDetailsViewController.swift in Sources */,
+				04C1FE9828B3EA3A0073ABF8 /* NetworkMonitor.swift in Sources */,
 				04C1FE4828B1047D0073ABF8 /* RequestType.swift in Sources */,
 				04C1FE5F28B16D240073ABF8 /* UITableViewCell+ReusableView.swift in Sources */,
+				04C1FE9028B39BFC0073ABF8 /* DataStorageProtocol.swift in Sources */,
 				04C1FE5328B10D600073ABF8 /* RequestManager.swift in Sources */,
 				04C1FE5C28B16CD40073ABF8 /* UITableViewCell+Dequeue.swift in Sources */,
 				04C1FE5928B156D70073ABF8 /* TopHeadlinesViewModel.swift in Sources */,

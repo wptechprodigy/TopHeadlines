@@ -16,15 +16,15 @@ class RequestManager: RequestManagerProtocol {
     private let parser: DataParserProtocol
 
     init(
-        apiManager: APIManagerProtocol = APIManager(),
-        parser: DataParserProtocol = DataParser()
+        apiManager: APIManagerProtocol,
+        parser: DataParserProtocol
     ) {
         self.apiManager = apiManager
         self.parser = parser
     }
 
     func perform<T: Decodable>(_ request: RequestProtocol) async throws -> T {
-        let data = try await apiManager.perfom(request)
+        let data = try await apiManager.perform(request)
         let decoded: T = try parser.parse(data: data)
         return decoded
     }
