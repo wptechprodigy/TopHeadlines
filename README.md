@@ -39,3 +39,6 @@ I want to be able to see the last viewed top headlines
 - [X] Each list should display the headline title, author and with a background of headline image
 
 #### Solution:
+
+<img src="https://user-images.githubusercontent.com/22558674/185888554-671111e2-8cc4-4d6f-bda5-bfa029944824.png" width="350"> <img src="https://user-images.githubusercontent.com/22558674/185888834-d5dc3d80-4085-43da-ab11-be03d36721b5.png" width="350">
+
