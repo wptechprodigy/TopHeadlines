@@ -11,7 +11,8 @@ class TopHeadlinesViewController: UITableViewController {
 
     var viewModel: TopHeadlinesViewModel?
     var select: (URL) -> Void = { _ in }
-
+    private var networkConnectionMonitor = NetworkMonitor()
+    
     // MARK: - Lifecyle
 
     override func viewDidLoad() {
@@ -29,10 +30,13 @@ class TopHeadlinesViewController: UITableViewController {
     // MARK: - Load top headlines
     
     private func loadTopHeadlines()  {
-        if let viewModel = viewModel {
-            Task {
-                await viewModel.loadTopHeadlines()
-                tableView.reloadData()
+        networkConnectionMonitor.startMonitoring()
+        networkConnectionMonitor.isConnected = { [weak self] isAvailable in
+            if let viewModel = self?.viewModel {
+                Task {
+                    await viewModel.loadTopHeadlines(isAvailable)
+                    self?.tableView.reloadData()
+                }
             }
         }
     }
@@ -90,5 +94,11 @@ class TopHeadlinesViewController: UITableViewController {
         if let viewModel = viewModel {
             self.select(viewModel.getHeadlineURL(at: indexPath))
         }
+    }
+
+    // MARK: -
+
+    deinit {
+        networkConnectionMonitor.stopMonitoring()
     }
 }
