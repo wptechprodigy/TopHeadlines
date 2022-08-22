@@ -32,6 +32,8 @@
 		04C1FE6128B16D5D0073ABF8 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1FE6028B16D5D0073ABF8 /* ReusableView.swift */; };
 		04C1FE6328B16E2C0073ABF8 /* TopHeadlineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1FE6228B16E2C0073ABF8 /* TopHeadlineCell.swift */; };
 		04C1FE6628B177930073ABF8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 04C1FE6528B177930073ABF8 /* Kingfisher */; };
+		04C1FE6B28B225640073ABF8 /* HeadlineDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1FE6A28B225640073ABF8 /* HeadlineDetailsViewController.swift */; };
+		04C1FE6D28B234C50073ABF8 /* UIViewController+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1FE6C28B234C50073ABF8 /* UIViewController+ReuseIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		04C1FE5E28B16D240073ABF8 /* UITableViewCell+ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReusableView.swift"; sourceTree = "<group>"; };
 		04C1FE6028B16D5D0073ABF8 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		04C1FE6228B16E2C0073ABF8 /* TopHeadlineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeadlineCell.swift; sourceTree = "<group>"; };
+		04C1FE6A28B225640073ABF8 /* HeadlineDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineDetailsViewController.swift; sourceTree = "<group>"; };
+		04C1FE6C28B234C50073ABF8 /* UIViewController+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,7 @@
 		04C1FE2E28AFE9080073ABF8 /* screens */ = {
 			isa = PBXGroup;
 			children = (
+				04C1FE6928B225340073ABF8 /* headline details */,
 				04C1FE5628B130CB0073ABF8 /* top headlines */,
 			);
 			path = screens;
@@ -209,6 +214,7 @@
 		04C1FE3728B0D3BD0073ABF8 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				04C1FE6728B222BA0073ABF8 /* api */,
 				04C1FE3828B0D3D50073ABF8 /* domain */,
 			);
 			path = Core;
@@ -306,6 +312,7 @@
 			children = (
 				04C1FE5B28B16CD40073ABF8 /* UITableViewCell+Dequeue.swift */,
 				04C1FE5E28B16D240073ABF8 /* UITableViewCell+ReusableView.swift */,
+				04C1FE6C28B234C50073ABF8 /* UIViewController+ReuseIdentifier.swift */,
 			);
 			path = "UIKit Extensions";
 			sourceTree = "<group>";
@@ -316,6 +323,29 @@
 				04C1FE6028B16D5D0073ABF8 /* ReusableView.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		04C1FE6728B222BA0073ABF8 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				04C1FE6828B222C90073ABF8 /* top headlines */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		04C1FE6828B222C90073ABF8 /* top headlines */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "top headlines";
+			sourceTree = "<group>";
+		};
+		04C1FE6928B225340073ABF8 /* headline details */ = {
+			isa = PBXGroup;
+			children = (
+				04C1FE6A28B225640073ABF8 /* HeadlineDetailsViewController.swift */,
+			);
+			path = "headline details";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,9 +455,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C1FE6D28B234C50073ABF8 /* UIViewController+ReuseIdentifier.swift in Sources */,
 				04C1FE4528B102770073ABF8 /* APIManager.swift in Sources */,
 				04C1FE6128B16D5D0073ABF8 /* ReusableView.swift in Sources */,
 				04C1FE3528B0D26D0073ABF8 /* TopHeadlineItem.swift in Sources */,
+				04C1FE6B28B225640073ABF8 /* HeadlineDetailsViewController.swift in Sources */,
 				04C1FE4828B1047D0073ABF8 /* RequestType.swift in Sources */,
 				04C1FE5F28B16D240073ABF8 /* UITableViewCell+ReusableView.swift in Sources */,
 				04C1FE5328B10D600073ABF8 /* RequestManager.swift in Sources */,
