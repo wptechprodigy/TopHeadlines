@@ -61,6 +61,7 @@ class TopHeadlinesViewController: UITableViewController {
                 self,
                 action: #selector(self.refresh),
                 for: .valueChanged)
+        refreshControl?.beginRefreshing()
     }
 
     @objc private func refresh(_ sender: UIRefreshControl) {
