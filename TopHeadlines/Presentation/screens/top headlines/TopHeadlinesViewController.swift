@@ -31,11 +31,11 @@ class TopHeadlinesViewController: UITableViewController {
     
     private func loadTopHeadlines()  {
         self.networkConnectionMonitor.startMonitoring()
-        self.networkConnectionMonitor.isConnected = { [weak self] isAvailable in
-            if let viewModel = self?.viewModel {
+        self.networkConnectionMonitor.isConnected = { isAvailable in
+            if let viewModel = self.viewModel {
                 Task {
                     await viewModel.loadTopHeadlines(isAvailable)
-                    self?.tableView.reloadData()
+                    self.tableView.reloadData()
                 }
             }
         }
