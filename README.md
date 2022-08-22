@@ -51,3 +51,18 @@ I want to be able to see the last viewed top headlines
 - [X] Handles when headline has no thumbnail image
 
 <img src="https://user-images.githubusercontent.com/22558674/185902310-3d013db0-1ad2-4b08-bcc2-c0c414a1ce6e.png" width="350">
+
+- [X] Displays persisted list when there's no connectivity
+- [X] Refresh functionality implemented
+
+#### TODO:
+
+- Decouple NetworkMonitor
+- Write more unit test
+
+#### How to install :
+- Xcode 13.2.1 or above (Recommended)
+- Open TopHealines.xcodeproj
+- Run unit testing using `cmd + U`
+- Run project to simulator or real device using `cmd + R`
+
