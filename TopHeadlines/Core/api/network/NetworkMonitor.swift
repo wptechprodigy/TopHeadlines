@@ -19,7 +19,7 @@ final class NetworkMonitor {
     // MARK: - Start
 
     func startMonitoring() {
-        monitor.pathUpdateHandler = { [weak self] path in
+        self.monitor.pathUpdateHandler = { [weak self] path in
             switch path.status == .satisfied {
                 case true:
                     self?.isConnected(true)
@@ -29,12 +29,12 @@ final class NetworkMonitor {
         }
 
         let queue = DispatchQueue(label: "NetworkAvailabilityMonitor")
-        monitor.start(queue: queue)
+        self.monitor.start(queue: queue)
     }
 
     // MARK: - Stop
 
     func stopMonitoring() {
-        monitor.cancel()
+        self.monitor.cancel()
     }
 }
