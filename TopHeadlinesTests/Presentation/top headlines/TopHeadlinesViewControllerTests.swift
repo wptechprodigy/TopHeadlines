@@ -22,6 +22,14 @@ class TopHeadlinesViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.title, "Top Headlines")
     }
 
+    func test_viewDidLoad_intialState() throws {
+        let sut = try makeSUT()
+
+        sut.loadViewIfNeeded()
+
+        XCTAssertEqual(sut.numberOfHeadlines(), 0)
+    }
+
     // MARK: - Helpers
 
     func makeSUT() throws -> TopHeadlinesViewController {
@@ -31,5 +39,13 @@ class TopHeadlinesViewControllerTests: XCTestCase {
         let initialVC = sb.instantiateInitialViewController()
         let sut = try XCTUnwrap(initialVC as? TopHeadlinesViewController)
         return sut
+    }
+}
+
+extension TopHeadlinesViewController {
+    private var topHeadlinesSection: Int { 0 }
+
+    func numberOfHeadlines() -> Int {
+        tableView.numberOfRows(inSection: topHeadlinesSection)
     }
 }
