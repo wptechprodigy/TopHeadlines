@@ -22,7 +22,7 @@ class TopHeadlinesViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.title, "Top Headlines")
     }
 
-    func test_viewDidLoad_intialState() throws {
+    func test_viewDidLoad_initialState() throws {
         let sut = try makeSUT()
 
         sut.loadViewIfNeeded()
